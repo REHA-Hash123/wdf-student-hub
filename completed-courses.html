@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Hub - Completed Courses</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #FBE3BE;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1a1a1a;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #7C8363;
+    border-radius: 50%;
+  }
+
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+  }
+
+  nav a.active {
+    font-weight: bold;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3B6FE0;
+    border: 2px solid #1a1a1a;
+  }
+
+  .completed-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 50px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .completed-text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .completed-text h1 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+
+  .card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    gap: 18px;
+    max-width: 420px;
+  }
+
+  .card-thumb {
+    width: 90px;
+    height: 100px;
+    background-color: #000000;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .card h3 {
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 20px;
+  }
+
+  .card .weeks {
+    font-size: 14px;
+  }
+
+  .completed-image img {
+    width: 260px;
+    max-width: 100%;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 0 40px;
+    font-size: 15px;
+  }
+
+  footer a {
+    color: #4B3FBB;
+    text-decoration: none;
+    margin: 0 6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    STUDENT HUB
+  </div>
+  <nav>
+    <a href="index.html">home</a>
+    <a href="courses.html">courses</a>
+    <a href="events.html">events</a>
+    <a href="about.html">about</a>
+    <a href="library.html">library</a>
+  </nav>
+  <div class="avatar"></div>
+</header>
+
+<div class="completed-section">
+  <div class="completed-text">
+    <h1>COURSES YOU<br>HAVE COMPLETED!</h1>
+    <div class="card">
+      <div class="card-thumb"></div>
+      <div>
+        <h3>abc course</h3>
+        <p>DESCRIPTION</p>
+        <div class="weeks">5 WEEKS</div>
+      </div>
+    </div>
+  </div>
+  <div class="completed-image">
+    <img src="thumbsup.png" alt="Happy student">
+  </div>
+</div>
+
+<footer>
+  <a href="faq.html">FAQ</a> | <a href="contact.html">CONTACT US</a> | <a href="feedback.html">FEEDBACK</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+/data/registrations.json
+/uploads/event-posters/*
+!/uploads/event-posters/.htaccess

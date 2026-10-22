@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Hub — Student API Demo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px 16px; font-family: Arial, sans-serif; background: #f4f6fb; color: #202534; }
+    main { max-width: 850px; margin: auto; background: white; padding: 24px; border-radius: 14px; box-shadow: 0 8px 28px #17255412; }
+    h1 { margin-top: 0; } form { display: grid; grid-template-columns: 1fr 1fr auto auto; gap: 10px; margin: 20px 0; }
+    input, button { font: inherit; padding: 10px 12px; border: 1px solid #d5d9e3; border-radius: 7px; }
+    button { cursor: pointer; background: #2449bd; color: white; border: 0; } button.secondary { background: #687386; } button.danger { background: #c0392b; }
+    .actions { display: flex; gap: 6px; } table { width: 100%; border-collapse: collapse; } th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid #e8eaf0; overflow-wrap: anywhere; }
+    #message { min-height: 1.4em; } @media(max-width:650px) { form { grid-template-columns: 1fr; } table { font-size: 14px; } th,td { padding: 8px 4px; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Student Hub</h1>
+  <p>Manage students asynchronously using a PHP JSON API.</p>
+  <form id="studentForm">
+    <input id="name" placeholder="Student name" required maxlength="100">
+    <input id="email" type="email" placeholder="Email address" required maxlength="190">
+    <button id="saveButton" type="submit">Add student</button>
+    <button id="cancelButton" class="secondary" type="button" hidden>Cancel edit</button>
+  </form>
+  <p id="message" role="status" aria-live="polite"></p>
+  <table>
+    <thead><tr><th>Name</th><th>Email</th><th>Actions</th></tr></thead>
+    <tbody id="studentRows"><tr><td colspan="3">Loading…</td></tr></tbody>
+  </table>
+</main>
+<script>
+const API_URL = 'api.php';
+const form = document.querySelector('#studentForm');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const rows = document.querySelector('#studentRows');
+const message = document.querySelector('#message');
+const saveButton = document.querySelector('#saveButton');
+const cancelButton = document.querySelector('#cancelButton');
+let editingId = null;
+let students = [];
+
+async function requestApi(method, body) {
+  const options = { method, headers: { 'Accept': 'application/json' } };
+  if (body !== undefined) {
+    options.headers['Content-Type'] = 'application/json';
+    options.body = JSON.stringify(body);
+  }
+  const response = await fetch(API_URL, options);
+  const result = await response.json();
+  if (!response.ok || !result.success) throw new Error(result.message || 'Request failed.');
+  return result;
+}
+
+async function loadStudents() {
+  try {
+    const result = await requestApi('GET');
+    students = result.data;
+    renderStudents();
+  } catch (error) {
+    message.textContent = 'Could not load students: ' + error.message;
+    rows.innerHTML = '<tr><td colspan="3">Unable to load records.</td></tr>';
+  }
+}
+
+function renderStudents() {
+  rows.replaceChildren();
+  if (students.length === 0) {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = 3; td.textContent = 'No students yet.'; tr.append(td); rows.append(tr); return;
+  }
+  for (const student of students) {
+    const tr = document.createElement('tr');
+    for (const value of [student.name, student.email]) {
+      const td = document.createElement('td'); td.textContent = value; tr.append(td);
+    }
+    const td = document.createElement('td'); td.className = 'actions';
+    const edit = document.createElement('button'); edit.type = 'button'; edit.textContent = 'Edit';
+    edit.addEventListener('click', () => startEdit(student.id));
+    const del = document.createElement('button'); del.type = 'button'; del.textContent = 'Delete'; del.className = 'danger';
+    del.addEventListener('click', () => deleteStudent(student.id));
+    td.append(edit, del); tr.append(td); rows.append(tr);
+  }
+}
+
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  saveButton.disabled = true;
+  try {
+    const body = { name: nameInput.value.trim(), email: emailInput.value.trim() };
+    if (editingId) {
+      await requestApi('PUT', { id: editingId, ...body });
+      message.textContent = 'Student updated successfully.';
+    } else {
+      await requestApi('POST', body);
+      message.textContent = 'Student added successfully.';
+    }
+    resetForm();
+    await loadStudents();
+  } catch (error) {
+    message.textContent = error.message;
+  } finally {
+    saveButton.disabled = false;
+  }
+});
+
+function startEdit(id) {
+  const student = students.find(s => s.id === id);
+  if (!student) return;
+  editingId = id; nameInput.value = student.name; emailInput.value = student.email;
+  saveButton.textContent = 'Update student'; cancelButton.hidden = false; nameInput.focus();
+}
+function resetForm() {
+  editingId = null; form.reset(); saveButton.textContent = 'Add student'; cancelButton.hidden = true;
+}
+cancelButton.addEventListener('click', resetForm);
+
+async function deleteStudent(id) {
+  if (!confirm('Delete this student?')) return;
+  try {
+    await requestApi('DELETE', { id });
+    message.textContent = 'Student deleted successfully.';
+    if (editingId === id) resetForm();
+    await loadStudents();
+  } catch (error) { message.textContent = error.message; }
+}
+
+loadStudents();
+</script>
+</body>
+</html>

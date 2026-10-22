@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "question": "How do I enroll in a course on Student Hub?",
+    "category": "Courses",
+    "answer": "Navigate to the Courses page, browse the catalog, and click the 'ENROLL' button on any course card. Your enrollment will be immediately linked to your student profile.",
+    "helpfulCount": 142
+  },
+  {
+    "id": 2,
+    "question": "Are the online courses self-paced or live?",
+    "category": "Courses",
+    "answer": "Most of our courses are hybrid. They include pre-recorded video lectures and hands-on coding exercises, plus optional weekly live Q&A sessions with the instructors.",
+    "helpfulCount": 98
+  },
+  {
+    "id": 3,
+    "question": "How do I change or customize my profile picture?",
+    "category": "Account",
+    "answer": "Click the circular avatar icon in the top-right corner of any page. You can upload an image from your computer, choose an illustrated avatar, or paste an image URL.",
+    "helpfulCount": 210
+  },
+  {
+    "id": 4,
+    "question": "What are the requirements for semester scholarships?",
+    "category": "Financial",
+    "answer": "Undergraduate students enrolled in a full-time degree program with a minimum cumulative GPA of 3.75 and good academic standing are eligible for merit scholarships.",
+    "helpfulCount": 85
+  },
+  {
+    "id": 5,
+    "question": "How can I access digital books in the online library?",
+    "category": "Library",
+    "answer": "Click 'Library' in the top navigation bar. You will find thousands of categorized e-books, research publications, and journals accessible with your student credentials.",
+    "helpfulCount": 115
+  },
+  {
+    "id": 6,
+    "question": "Can I get a refund if I withdraw from a course?",
+    "category": "Financial",
+    "answer": "Yes, you can receive a 100% refund within the first 7 days of course enrollment, provided you have not completed more than 20% of the course modules.",
+    "helpfulCount": 64
+  },
+  {
+    "id": 7,
+    "question": "How do I register for campus hackathons and workshops?",
+    "category": "Events",
+    "answer": "Visit the Events section, find the event you want to attend, and check the available seat capacity and date. Register directly through the event link.",
+    "helpfulCount": 77
+  },
+  {
+    "id": 8,
+    "question": "Where can I view my registered courses and attendance?",
+    "category": "Academics",
+    "answer": "You can view your active courses by clicking the shopping/cart icon in the header or visiting the 'Completed Courses' page from your profile dropdown.",
+    "helpfulCount": 133
+  },
+  {
+    "id": 9,
+    "question": "What should I do if I forget my login password?",
+    "category": "Account",
+    "answer": "Go to the Login page and click 'Forgot Password'. Enter your registered email address to receive a secure password reset link.",
+    "helpfulCount": 190
+  },
+  {
+    "id": 10,
+    "question": "How do I contact student grievance or technical support?",
+    "category": "Support",
+    "answer": "Click 'CONTACT US' in the page footer or email support@studenthub.edu. Our campus tech desk is available Monday to Friday from 9 AM to 6 PM.",
+    "helpfulCount": 52
+  },
+  {
+    "id": 11,
+    "question": "Can I participate in multiple campus student clubs?",
+    "category": "Events",
+    "answer": "Yes! Students can join up to 3 clubs per semester to balance extracurricular engagement with their academic coursework.",
+    "helpfulCount": 46
+  },
+  {
+    "id": 12,
+    "question": "How do I receive course completion certificates?",
+    "category": "Courses",
+    "answer": "Upon completing 100% of the lessons and passing the final assessment quiz with at least 70%, your verified certificate is generated in PDF format.",
+    "helpfulCount": 168
+  }
+]

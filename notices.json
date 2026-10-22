@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Fall 2026 Midterm Exam Schedule Released",
+    "category": "Examinations",
+    "date": "2026-10-15",
+    "priority": "High",
+    "department": "Examination Cell",
+    "description": "The detailed timetable for the upcoming midterm examinations has been officially published. Check your student portal for hall tickets."
+  },
+  {
+    "id": 2,
+    "title": "Annual Tech Hackathon 'CodeVerse 2026' Registrations",
+    "category": "Events",
+    "date": "2026-10-12",
+    "priority": "Normal",
+    "department": "Computer Science Dept",
+    "description": "Registrations are now open for the 48-hour campus hackathon. Total cash prize pool of $5,000 for top 3 teams."
+  },
+  {
+    "id": 3,
+    "title": "Campus Library Extended Working Hours for Finals",
+    "category": "Facilities",
+    "date": "2026-10-10",
+    "priority": "Normal",
+    "department": "Central Library",
+    "description": "Starting next Monday, the Central Library will remain open until 2:00 AM daily to facilitate group study and exam preparation."
+  },
+  {
+    "id": 4,
+    "title": "Merit Scholarship Applications for Academic Year 2026-27",
+    "category": "Scholarship",
+    "date": "2026-10-08",
+    "priority": "High",
+    "department": "Financial Aid Office",
+    "description": "Eligible undergraduate students with GPA 3.75+ can apply for university merit scholarships before November 1st."
+  },
+  {
+    "id": 5,
+    "title": "Campus Wi-Fi Maintenance & Temporary Outage Notice",
+    "category": "IT Services",
+    "date": "2026-10-05",
+    "priority": "Urgent",
+    "department": "IT Infrastructure",
+    "description": "Scheduled router upgrades will take place this Sunday from 2:00 AM to 6:00 AM. Academic portal access may be intermittent."
+  },
+  {
+    "id": 6,
+    "title": "Guest Lecture on Generative AI by Dr. Alan Thorne",
+    "category": "Academics",
+    "date": "2026-10-03",
+    "priority": "Normal",
+    "department": "AI & Research Center",
+    "description": "Attend an interactive session on large language models and autonomous agent workflows in the Main Auditorium."
+  },
+  {
+    "id": 7,
+    "title": "Hostel Room Allocation & Re-registration Guidelines",
+    "category": "Hostel",
+    "date": "2026-09-28",
+    "priority": "Normal",
+    "department": "Hostel Administration",
+    "description": "All resident scholars must submit their room renewal forms and clearance slips by October 25th."
+  },
+  {
+    "id": 8,
+    "title": "Campus Placement Drive: Top Tech Companies Visiting",
+    "category": "Placement",
+    "date": "2026-09-25",
+    "priority": "High",
+    "department": "Training & Placement",
+    "description": "Google, Microsoft, and Amazon will conduct campus recruitment drives starting mid-November. Submit updated resumes."
+  },
+  {
+    "id": 9,
+    "title": "Blood Donation Camp & Health Checkup Drive",
+    "category": "Wellness",
+    "date": "2026-09-20",
+    "priority": "Normal",
+    "department": "Red Cross Student Club",
+    "description": "Join us at the Student Center to donate blood and support local community hospitals. Free health checkups included."
+  },
+  {
+    "id": 10,
+    "title": "Semester Fee Payment Deadline Notice",
+    "category": "Finance",
+    "date": "2026-09-18",
+    "priority": "Urgent",
+    "department": "Accounts Department",
+    "description": "Last date to pay semester tuition fees without late charges is October 30. Payments can be completed online via net banking."
+  },
+  {
+    "id": 11,
+    "title": "Inter-College Sports Tournament Tryouts",
+    "category": "Sports",
+    "date": "2026-09-15",
+    "priority": "Normal",
+    "department": "Department of Physical Education",
+    "description": "Tryouts for football, basketball, badminton, and cricket teams will take place at the Sports Complex every evening this week."
+  },
+  {
+    "id": 12,
+    "title": "Course Drop & Add Deadline Notice",
+    "category": "Academics",
+    "date": "2026-09-10",
+    "priority": "High",
+    "department": "Registrar Office",
+    "description": "Final chance to add or drop elective courses for the current semester ends this Friday at 5:00 PM."
+  }
+]

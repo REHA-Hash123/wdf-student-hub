@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Hub - Contact Us</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #FBE3BE;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1a1a1a;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #7C8363;
+    border-radius: 50%;
+  }
+
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+  }
+
+  nav a.active {
+    font-weight: bold;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3B6FE0;
+  }
+
+  .contact-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 50px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .contact-text {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .contact-text h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .contact-item {
+    margin-bottom: 22px;
+  }
+
+  .contact-item .label {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .contact-item a {
+    color: #4B3FBB;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .contact-image img {
+    width: 380px;
+    max-width: 100%;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 0 40px;
+    font-size: 15px;
+  }
+
+  footer a {
+    color: #4B3FBB;
+    text-decoration: none;
+    margin: 0 6px;
+  }
+
+  footer a.active {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    STUDENT HUB
+  </div>
+  <nav>
+    <a href="index.html">home</a>
+    <a href="courses.html">courses</a>
+    <a href="events.html">events</a>
+    <a href="about.html" class="active">about</a>
+    <a href="library.html">library</a>
+  </nav>
+  <div class="avatar"></div>
+</header>
+
+<div class="contact-section">
+  <div class="contact-text">
+    <h1>CONTACT US</h1>
+    <div class="contact-item">
+      <div class="label">EMAIL:</div>
+      <a href="mailto:25dcs123@charusat.edu.in">25dcs123@charusat.edu.in</a>
+    </div>
+    <div class="contact-item">
+      <div class="label">PHONE :</div>
+      <a href="tel:888888888888">888888888888</a>
+    </div>
+    
+  <div class="contact-form" style="flex:1;min-width:280px;background:#fff8ed;padding:24px;border-radius:14px;">
+    <h2 style="margin-bottom:16px;">Send us a message</h2>
+    <form action="form-handler.php" method="post">
+      <input type="hidden" name="form_type" value="contact">
+      <label for="contactName">Name</label><br>
+      <input id="contactName" name="name" type="text" required minlength="2" maxlength="100"
+        style="width:100%;padding:12px;margin:6px 0 14px;border:1px solid #bbb;border-radius:6px;"><br>
+      <label for="contactEmail">Email</label><br>
+      <input id="contactEmail" name="email" type="email" required maxlength="254"
+        style="width:100%;padding:12px;margin:6px 0 14px;border:1px solid #bbb;border-radius:6px;"><br>
+      <label for="contactMessage">Message</label><br>
+      <textarea id="contactMessage" name="message" required minlength="10" maxlength="3000" rows="5"
+        style="width:100%;padding:12px;margin:6px 0 14px;border:1px solid #bbb;border-radius:6px;"></textarea><br>
+      <button type="submit" style="padding:12px 20px;background:#4B3FBB;color:white;border:0;border-radius:6px;cursor:pointer;">Send message</button>
+    </form>
+  </div>
+  <div class="contact-image">
+    <img src="CONTACT.png" alt="Contact illustration">
+  </div>
+</div>
+
+<footer>
+  <a href="faq.html">FAQ</a> | <a href="contact.html" class="active">CONTACT US</a> | <a href="feedback.html">FEEDBACK</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Hub - About Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon" aria-hidden="true"></div>
+        <span class="brand-title">STUDENT HUB</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">home</a>
+        <a href="courses.html" class="nav-link">courses</a>
+        <a href="events.html" class="nav-link">events</a>
+        <a href="about.html" class="nav-link active">about</a>
+        <a href="library.html" class="nav-link">library</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="auth-group">
+          <a href="login.html" class="login-link">login</a>
+          <a href="register.html" class="register-btn">register</a>
+        </div>
+
+        <!-- Top Right Profile Circle (Customizable) -->
+        <div class="user-profile-wrapper">
+          <button type="button" class="user-profile-circle-btn" id="profileCircleBtn" title="Customize Profile" aria-label="Customize Profile">
+            <img src="" alt="User Avatar" class="user-profile-img">
+            <span class="online-indicator"></span>
+            <span class="avatar-edit-hint" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </span>
+          </button>
+        </div>
+
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <main class="container">
+    <div class="about-section">
+      <div class="about-text">
+        <h1>ABOUT US</h1>
+        <p>
+          Welcome to Student Hub, a modern digital learning space built to make top-quality education accessible, engaging, and deeply practical for everyone. We believe that learning should fit seamlessly into your life, which is why we offer flexible, expert-led online courses designed to break down complex subjects into clear, actionable steps.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="ABOUT US.jpg" alt="Students learning together">
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav">
+        <a href="faq.html" class="footer-link">FAQ</a>
+        <span class="footer-divider">|</span>
+        <a href="contact.html" class="footer-link">CONTACT US</a>
+        <span class="footer-divider">|</span>
+        <a href="feedback.html" class="footer-link">FEEDBACK</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Student Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Profile Customizer Modal -->
+  <div class="modal-overlay" id="profileModalOverlay" role="dialog" aria-modal="true">
+    <div class="profile-modal">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <h2 class="modal-title">Customize Profile</h2>
+        </div>
+        <button type="button" class="modal-close-btn" id="closeProfileModalBtn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="avatar-preview-section">
+          <img src="" alt="Avatar Preview" class="modal-avatar-preview" id="modalAvatarPreview">
+          <div class="avatar-preview-info">
+            <span class="preview-name" id="previewName">Alex Morgan</span>
+            <span class="preview-role" id="previewRole">Student</span>
+            <span class="preview-hint">Image updates across all pages</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="custom-section-title">1. Upload Image from Your Device</div>
+          <div class="upload-dropzone" id="fileDropzone">
+            <div class="upload-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </div>
+            <div class="upload-title">Click to browse or drag &amp; drop an image</div>
+            <input type="file" id="fileInputHidden" accept="image/*">
+          </div>
+        </div>
+
+        <div>
+          <div class="custom-section-title">2. Choose a Preset Avatar</div>
+          <div class="preset-avatars-grid" id="presetAvatarsContainer"></div>
+        </div>
+
+        <div>
+          <div class="custom-section-title">Profile Information</div>
+          <div class="profile-fields-row">
+            <div>
+              <label for="inputUserName" class="input-label">Your Name</label>
+              <input type="text" class="text-input-field" id="inputUserName" value="Alex Morgan">
+            </div>
+            <div>
+              <label for="inputUserRole" class="input-label">Program</label>
+              <input type="text" class="text-input-field" id="inputUserRole" value="Computer Science">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="reset-profile-btn" id="resetProfileBtn">Reset to Default</button>
+        <div class="modal-btn-group">
+          <button type="button" class="cancel-modal-btn" id="cancelProfileModalBtn">Cancel</button>
+          <button type="button" class="save-modal-btn" id="saveProfileModalBtn">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="script.js"></script>
+</body>
+</html>

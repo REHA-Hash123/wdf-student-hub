@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration - Student Hub</title>
+  <meta name="description" content="Register as a student on Student Hub to access online courses, events, and library materials.">
+
+  <!-- Master Stylesheet and Registration Specialized Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       SITE HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand" aria-label="Student Hub Home">
+        <div class="brand-icon" aria-hidden="true"></div>
+        <span class="brand-title">STUDENT HUB</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">home</a>
+        <a href="courses.html" class="nav-link">courses</a>
+        <a href="events.html" class="nav-link">events</a>
+        <a href="about.html" class="nav-link">about</a>
+        <a href="library.html" class="nav-link">library</a>
+      </nav>
+
+      <!-- Right Header Actions (Auth & Profile Circle) -->
+      <div class="header-actions">
+        <div class="auth-group">
+          <a href="login.html" class="login-link">login</a>
+          <a href="register.html" class="register-btn" aria-current="page">register</a>
+        </div>
+
+        <!-- Top Right Profile Circle (Customizable) -->
+        <div class="user-profile-wrapper">
+          <button type="button" class="user-profile-circle-btn" id="profileCircleBtn" title="Customize Profile" aria-label="Customize Profile">
+            <img src="" alt="User Avatar" class="user-profile-img">
+            <span class="online-indicator" title="Online"></span>
+            <span class="avatar-edit-hint" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN REGISTRATION CONTENT
+       ====================================================================== -->
+  <main class="register-page-wrapper">
+    <div class="reg-card">
+      
+      <!-- Card Header -->
+      <div class="reg-card-header">
+        <span class="reg-badge">Admissions 2026</span>
+        <h1 class="reg-title">STUDENT REGISTRATION</h1>
+        <p class="reg-subtitle">
+          Join our learning community. Complete the form below with your academic details to get started.
+        </p>
+      </div>
+
+      <!-- Registration Form Body -->
+      <div class="reg-form-body">
+        <form id="studentRegistrationForm" action="form-handler.php" method="post" novalidate autocomplete="on">
+          <div class="form-grid">
+
+            <!-- 1. FULL NAME (HTML5 text input + RegEx: alphabets & spaces) -->
+            <div class="form-group full-width">
+              <label for="fullName" class="form-label">
+                <span>Full Name <span class="required-star">*</span></span>
+                <span class="optional-tag">Min. 3 letters</span>
+              </label>
+              <div class="input-control-wrap">
+                <span class="input-icon-prefix" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </span>
+                <input 
+                  type="text" 
+                  id="fullName" 
+                  name="fullName" 
+                  class="form-input" 
+                  placeholder="e.g. Alex Morgan" 
+                  required 
+                  aria-describedby="fullNameError"
+                  aria-required="true"
+                >
+                <span class="validation-icon" aria-hidden="true">✓</span>
+              </div>
+              <span class="error-msg" id="fullNameError" role="alert"></span>
+            </div>
+
+            <!-- USERNAME -->
+            <div class="form-group">
+              <label for="username" class="form-label">
+                <span>Username <span class="required-star">*</span></span>
+                <span class="optional-tag">3–30 characters</span>
+              </label>
+              <div class="input-control-wrap">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="form-input"
+                  placeholder="e.g. alex_morgan"
+                  minlength="3"
+                  maxlength="30"
+                  pattern="[A-Za-z0-9_]+"
+                  autocomplete="username"
+                  required
+                  aria-describedby="usernameError"
+                  aria-required="true"
+                >
+                <span class="validation-icon" aria-hidden="true">✓</span>
+              </div>
+              <span class="error-msg" id="usernameError" role="alert"></span>
+            </div>
+
+            <!-- 2. EMAIL ADDRESS (HTML5 email input + RegEx) -->
+            <div class="form-group">
+              <label for="email" class="form-label">
+                <span>Email Address <span class="required-star">*</span></span>
+              </label>
+              <div class="input-control-wrap">
+                <span class="input-icon-prefix" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </span>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="alex.m@university.edu" 
+                  required 
+                  aria-describedby="emailError"
+                  aria-required="true"
+                >
+                <span class="validation-icon" aria-hidden="true">✓</span>
+              </div>
+              <span class="error-msg" id="emailError" role="alert"></span>
+            </div>
+
+            <!-- 3. MOBILE NUMBER (HTML5 tel input + RegEx: 10 digits) -->
+            <div class="form-group">
+              <label for="mobileNumber" class="form-label">
+                <span>Mobile Number <span class="required-star">*</span></span>
+                <span class="optional-tag">10 digits</span>
+              </label>
+              <div class="input-control-wrap">
+                <span class="input-icon-prefix" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </span>
+                <input 
+                  type="tel" 
+                  id="mobileNumber" 
+                  name="mobileNumber" 
+                  class="form-input" 
+                  placeholder="e.g. 9876543210" 
+                  maxlength="10"
+                  required 
+                  aria-describedby="mobileError"
+                  aria-required="true"
+                >
+                <span class="validation-icon" aria-hidden="true">✓</span>
+              </div>
+              <span class="error-msg" id="mobileError" role="alert"></span>
+            </div>
+
+            <!-- 4. PASSWORD (HTML5 password + Strength Meter + Toggle) -->
+            <div class="form-group full-width">
+              <label for="password" class="form-label">
+                <span>Password <span class="required-star">*</span></span>
+              </label>
+              <div class="input-control-wrap has-password-toggle">
+                <span class="input-icon-prefix" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </span>
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  class="form-input" 
+                  placeholder="Create a strong password" 
+                  required 
+                  aria-describedby="passwordError"
+                  aria-required="true"
+                >
+                <button type="button" class="password-toggle-btn" data-target="password" aria-label="Toggle password visibility">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+                <span class="validation-icon" aria-hidden="true">✓</span>
+              </div>
+              <span class="error-msg" id="passwordError" role="alert"></span>
+
+              <!-- Password Strength Meter Visual -->
+              <div class="password-meter-wrap" aria-live="polite">
+                <div class="meter-header">
+                  <span class="meter-title">Password Strength:</span>
+                  <span class="meter-label" id="meterLabel">None</span>
+                </div>
+                <div class="meter-progress-track">
+                  <div class="meter-progress-bar" id="meterProgress"></div>
+                </div>
+                
+                <!-- Criteria Checklist -->
+                <ul class="strength-checklist" aria-label="Password requirements">
+                  <li class="check-item" id="checkLength">
+                    <span class="check-item-icon">✓</span>
+                    <span>At least 8 characters</span>
+                  </li>
+                  <li class="check-item" id="checkUpper">
+                    <span class="check-item-icon">✓</span>
+                    <span>1+ Uppercase letter (A-Z)</span>
+                  </li>
+                  <li class="check-item" id="checkLower">
+                    <span class="check-item-icon">✓</span>
+                    <span>1+ Lowercase letter (a-z)</span>
+                  </li>
+                  <li class="check-item" id="checkNumber">
+                    <span class="check-item-icon">✓</span>
+                    <span>1+ Number digit (0-9)</span>
+                  </li>
+                  <li class="check-item" id="checkSpecial">
+                    <span class="check-item-icon">✓</span>
+                    <span>1+ Special symbol (!@#$...)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 5. CONFIRM PASSWORD -->
+            <div class="form-group full-width">
+              <label for="confirmPassword" class="form-label">
+                <span>Confirm Password <span class="required-star">*</span></span>
+              </label>
+              <div class="input-control-wrap has-password-toggle">
+                <span class="input-icon-prefix" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </span>
+                <input 
+                  type="password" 
+                  id="confirmPassword" 
+                  name="confirmPassword" 
+                  class="form-input" 
+                  placeholder="Re-type your password" 
+                  required 
+                  aria-describedby="confirmPasswordError"
+                  aria-required="true"
+                >
+                <button type="button" class="password-toggle-btn" data-target="confirmPassword" aria-label="Toggle confirm password visibility">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+                <span class="validation-icon" aria-hidden="true">✓</span>
+              </div>
+              <span class="error-msg" id="confirmPasswordError" role="alert"></span>
+            </div>
+
+            <!-- 6. COURSE (Select dropdown) -->
+            <div class="form-group full-width">
+              <label for="course" class="form-label">
+                <span>Course / Department Program <span class="required-star">*</span></span>
+              </label>
+              <div class="input-control-wrap">
+                <span class="input-icon-prefix" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </span>
+                <select id="course" name="course" class="form-select" required aria-describedby="courseError" aria-required="true">
+                  <option value="" disabled selected>Select your enrolled course</option>
+                  <option value="cs">B.Tech / B.S. in Computer Science</option>
+                  <option value="it">Information Technology</option>
+                  <option value="ds">Data Science &amp; Artificial Intelligence</option>
+                  <option value="se">Full-Stack Software Engineering</option>
+                  <option value="ece">Electronics &amp; Communication</option>
+                  <option value="bba">Business Administration (BBA/MBA)</option>
+                  <option value="design">UI/UX &amp; Digital Product Design</option>
+                </select>
+                <span class="validation-icon" aria-hidden="true" style="right: 36px;">✓</span>
+              </div>
+              <span class="error-msg" id="courseError" role="alert"></span>
+            </div>
+
+            <!-- 7. ACADEMIC YEAR (Radio button cards) -->
+            <div class="form-group full-width" id="yearGroupContainer">
+              <label class="form-label">
+                <span>Academic Year <span class="required-star">*</span></span>
+              </label>
+              <div class="radio-options-row" role="radiogroup" aria-label="Academic Year">
+                
+                <label class="radio-card">
+                  <input type="radio" name="academicYear" value="1st Year">
+                  <span class="radio-custom-dot" aria-hidden="true"></span>
+                  <span>1st Year</span>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="academicYear" value="2nd Year">
+                  <span class="radio-custom-dot" aria-hidden="true"></span>
+                  <span>2nd Year</span>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="academicYear" value="3rd Year">
+                  <span class="radio-custom-dot" aria-hidden="true"></span>
+                  <span>3rd Year</span>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="academicYear" value="4th Year">
+                  <span class="radio-custom-dot" aria-hidden="true"></span>
+                  <span>4th Year</span>
+                </label>
+
+              </div>
+              <span class="error-msg" id="yearError" role="alert"></span>
+            </div>
+
+            <!-- 8. GENDER (Radio button cards) -->
+            <div class="form-group full-width" id="genderGroupContainer">
+              <label class="form-label">
+                <span>Gender <span class="required-star">*</span></span>
+              </label>
+              <div class="radio-options-row" role="radiogroup" aria-label="Gender">
+                
+                <label class="radio-card">
+                  <input type="radio" name="gender" value="Male">
+                  <span class="radio-custom-dot" aria-hidden="true"></span>
+                  <span>Male</span>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="gender" value="Female">
+                  <span class="radio-custom-dot" aria-hidden="true"></span>
+                  <span>Female</span>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="gender" value="Other">
+                  <span class="radio-custom-dot" aria-hidden="true"></span>
+                  <span>Other / Prefer not to say</span>
+                </label>
+
+              </div>
+              <span class="error-msg" id="genderError" role="alert"></span>
+            </div>
+
+            <!-- 9. TERMS ACCEPTANCE (Checkbox) -->
+            <div class="form-group full-width" id="termsGroup">
+              <label class="terms-checkbox-wrap" for="termsAccept">
+                <input type="checkbox" id="termsAccept" name="termsAccept" required aria-describedby="termsError">
+                <span class="terms-text">
+                  I agree to the <a href="faq.html" class="terms-link" target="_blank">Terms of Service</a>, 
+                  <a href="faq.html" class="terms-link" target="_blank">Privacy Policy</a>, and Student Honor Code of Student Hub.
+                  <span class="required-star">*</span>
+                </span>
+              </label>
+              <span class="error-msg" id="termsError" role="alert"></span>
+            </div>
+
+          </div>
+
+          <!-- Form Action Buttons -->
+          <div class="form-actions-row">
+            <button type="button" class="clear-form-btn" id="clearFormBtn">
+              Clear Form
+            </button>
+            <button type="submit" class="submit-reg-btn" id="submitRegBtn">
+              <span>Complete Registration</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <div class="login-redirect-row">
+            Already have an account? <a href="login.html">Login here</a>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       REGISTRATION SUCCESS MODAL TICKET
+       ====================================================================== -->
+  <div class="success-modal-overlay" id="successModalOverlay" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="success-card">
+      <div class="success-icon-wrap" aria-hidden="true">✓</div>
+      <h2 class="success-title" id="successTitle">Registration Successful!</h2>
+      <p class="success-msg">Welcome to Student Hub! Your student account has been created.</p>
+
+      <div class="ticket-details">
+        <div class="ticket-row">
+          <span class="ticket-label">Student ID:</span>
+          <span class="ticket-val" id="ticketRegId">SH-2026-0000</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Full Name:</span>
+          <span class="ticket-val" id="ticketName">-</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Email:</span>
+          <span class="ticket-val" id="ticketEmail">-</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Mobile:</span>
+          <span class="ticket-val" id="ticketMobile">-</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Course:</span>
+          <span class="ticket-val" id="ticketCourse">-</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Year:</span>
+          <span class="ticket-val" id="ticketYear">-</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Gender:</span>
+          <span class="ticket-val" id="ticketGender">-</span>
+        </div>
+      </div>
+
+      <div class="success-btn-group">
+        <button type="button" class="success-done-btn" id="closeSuccessBtn">
+          Continue to Home &amp; Courses
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Customizer Modal (Shared with main site) -->
+  <div class="modal-overlay" id="profileModalOverlay" role="dialog" aria-modal="true">
+    <div class="profile-modal">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <h2 class="modal-title">Customize Profile</h2>
+        </div>
+        <button type="button" class="modal-close-btn" id="closeProfileModalBtn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="avatar-preview-section">
+          <img src="" alt="Avatar Preview" class="modal-avatar-preview" id="modalAvatarPreview">
+          <div class="avatar-preview-info">
+            <span class="preview-name" id="previewName">Alex Morgan</span>
+            <span class="preview-role" id="previewRole">Student</span>
+            <span class="preview-hint">Image updates across all pages</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="custom-section-title">1. Upload Image from Your Device</div>
+          <div class="upload-dropzone" id="fileDropzone">
+            <div class="upload-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </div>
+            <div class="upload-title">Click to browse or drag &amp; drop an image</div>
+            <input type="file" id="fileInputHidden" accept="image/*">
+          </div>
+        </div>
+
+        <div>
+          <div class="custom-section-title">2. Choose a Preset Avatar</div>
+          <div class="preset-avatars-grid" id="presetAvatarsContainer"></div>
+        </div>
+
+        <div>
+          <div class="custom-section-title">Profile Information</div>
+          <div class="profile-fields-row">
+            <div>
+              <label for="inputUserName" class="input-label">Your Name</label>
+              <input type="text" class="text-input-field" id="inputUserName" value="Alex Morgan">
+            </div>
+            <div>
+              <label for="inputUserRole" class="input-label">Program</label>
+              <input type="text" class="text-input-field" id="inputUserRole" value="Computer Science">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="reset-profile-btn" id="resetProfileBtn">Reset to Default</button>
+        <div class="modal-btn-group">
+          <button type="button" class="cancel-modal-btn" id="cancelProfileModalBtn">Cancel</button>
+          <button type="button" class="save-modal-btn" id="saveProfileModalBtn">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav">
+        <a href="faq.html" class="footer-link">FAQ</a>
+        <span class="footer-divider">|</span>
+        <a href="contact.html" class="footer-link">CONTACT US</a>
+        <span class="footer-divider">|</span>
+        <a href="feedback.html" class="footer-link">FEEDBACK</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Student Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- External JavaScript Files -->
+  <script src="script.js"></script>
+  <script src="register.js"></script>
+</body>
+</html>

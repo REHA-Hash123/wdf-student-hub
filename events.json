@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "AI & Machine Learning Workshop",
+    "category": "Workshop",
+    "date": "2026-09-15",
+    "time": "10:00 AM",
+    "location": "Engineering Hall, Room 204",
+    "description": "Build your first image classifier in a hands-on session covering the basics of neural networks.",
+    "seats": 40
+  },
+  {
+    "id": 2,
+    "title": "Careers in Data Science",
+    "category": "Career",
+    "date": "2026-09-18",
+    "time": "1:00 PM",
+    "location": "Career Center, Main Hall",
+    "description": "Alumni panel on breaking into data science roles, resume reviews, and interview practice.",
+    "seats": 60
+  },
+  {
+    "id": 3,
+    "title": "Intro to Public Speaking",
+    "category": "Seminar",
+    "date": "2026-09-20",
+    "time": "3:30 PM",
+    "location": "Humanities Building, Room 110",
+    "description": "Practical techniques for calming nerves, structuring a talk, and holding a room's attention.",
+    "seats": 30
+  },
+  {
+    "id": 4,
+    "title": "Fall Welcome Fair",
+    "category": "Campus",
+    "date": "2026-09-12",
+    "time": "11:00 AM",
+    "location": "Quad Lawn",
+    "description": "Meet campus clubs, grab free food, and sign up for intramural sports.",
+    "seats": 500
+  },
+  {
+    "id": 5,
+    "title": "Cloud Computing Webinar",
+    "category": "Webinar",
+    "date": "2026-09-22",
+    "time": "5:00 PM",
+    "location": "Online",
+    "description": "A remote walkthrough of cloud fundamentals with a live Q&A for beginners.",
+    "seats": 200
+  },
+  {
+    "id": 6,
+    "title": "Resume & LinkedIn Clinic",
+    "category": "Career",
+    "date": "2026-09-25",
+    "time": "2:00 PM",
+    "location": "Career Center, Room 3",
+    "description": "Drop in for a one-on-one review of your resume and LinkedIn profile before fall recruiting.",
+    "seats": 25
+  },
+  {
+    "id": 7,
+    "title": "Web Development Bootcamp",
+    "category": "Workshop",
+    "date": "2026-09-27",
+    "time": "9:00 AM",
+    "location": "Computer Lab B",
+    "description": "A full-day intro to HTML, CSS, and JavaScript for students with no prior coding experience.",
+    "seats": 35
+  },
+  {
+    "id": 8,
+    "title": "Mental Health Awareness Talk",
+    "category": "Seminar",
+    "date": "2026-09-14",
+    "time": "4:00 PM",
+    "location": "Student Wellness Center",
+    "description": "A counselor-led conversation about managing stress and finding support on campus.",
+    "seats": 80
+  },
+  {
+    "id": 9,
+    "title": "Intramural Soccer Kickoff",
+    "category": "Campus",
+    "date": "2026-09-19",
+    "time": "6:00 PM",
+    "location": "East Athletic Field",
+    "description": "Sign-ups and the first round of matches for this semester's intramural soccer league.",
+    "seats": 100
+  },
+  {
+    "id": 10,
+    "title": "UX Research Webinar",
+    "category": "Webinar",
+    "date": "2026-09-29",
+    "time": "12:00 PM",
+    "location": "Online",
+    "description": "Learn how professional UX researchers plan studies and turn findings into design decisions.",
+    "seats": 150
+  },
+  {
+    "id": 11,
+    "title": "Startup Pitch Night",
+    "category": "Career",
+    "date": "2026-10-02",
+    "time": "6:30 PM",
+    "location": "Business School Auditorium",
+    "description": "Student founders pitch their ventures to a panel of local investors and alumni.",
+    "seats": 120
+  },
+  {
+    "id": 12,
+    "title": "Photography Basics Workshop",
+    "category": "Workshop",
+    "date": "2026-10-04",
+    "time": "10:30 AM",
+    "location": "Arts Building, Studio 2",
+    "description": "Learn composition, lighting, and manual settings using your phone or a borrowed camera.",
+    "seats": 20
+  }
+]

@@ -1,0 +1,24 @@
+STUDENT HUB — ADMIN EVENT MANAGEMENT
+
+Features
+- Admin-only event management page: admin-events.php
+- Create, view, edit, and delete events
+- Optional poster upload and replacement
+- Server-side validation: JPG/JPEG, PNG, WebP only; maximum 2 MB; verifies MIME and image data
+- Randomized filenames, prepared SQL statements, HTML escaping, CSRF tokens
+- Deleting an event also removes related registrations via the database foreign key cascade
+
+Setup
+1. Extract the project into C:\xampp\htdocs\student hub\ (or your chosen project folder).
+2. Ensure Apache and MySQL are running and the studenthub database is imported.
+3. If this is an existing database, run event-management-migration.sql once in phpMyAdmin. On a fresh install, database.sql already includes poster_path.
+4. Ensure PHP can write to uploads/event-posters. The application attempts to create this directory automatically.
+5. Log in with an account whose students.role is admin and open http://localhost/student%20hub/admin-events.php (adjust URL for your folder name).
+
+Upload limit note
+The app enforces a 2 MB per-file limit. If PHP's upload_max_filesize or post_max_size is set lower in php.ini, PHP may reject the upload before application validation. Keep both at 2M or higher, restart Apache after changes.
+
+Security notes
+- Only admins can access the page (require_role('admin')).
+- Uploads are restricted to raster image types and checked using finfo and getimagesize; original filenames are not used.
+- For production, also configure the web server to disable script execution inside upload directories. The included .htaccess is for Apache/XAMPP.

@@ -1,0 +1,53 @@
+STUDENT HUB - MYSQL DATABASE + XAMPP
+
+SETUP
+1. Extract this folder to C:\xampp\htdocs\student hub
+2. Open XAMPP Control Panel and start Apache and MySQL.
+3. Visit http://localhost/phpmyadmin
+4. Choose Import, select database.sql from this folder, and click Import/Go.
+   The script creates the studenthub database and students, events, registrations tables.
+5. Check db.php credentials. Standard XAMPP defaults are root with an empty password.
+6. Open http://localhost/student%20hub/register.html and submit a registration.
+   Student records are stored in the students table. Contact messages remain in data/contacts.json.
+
+DATABASE DESIGN
+- students: student account/profile and password hash.
+- events: event details, date, venue, and seat capacity.
+- registrations: junction table linking students to events. Unique(student_id,event_id)
+  prevents a student registering for the same event more than once.
+
+EVENT REGISTRATION ENDPOINT
+POST to register-event.php with student_id and event_id fields. Example HTML form:
+<form action="register-event.php" method="post">
+  <label>Student ID <input type="number" name="student_id" required></label>
+  <label>Event ID <input type="number" name="event_id" required></label>
+  <button type="submit">Register for event</button>
+</form>
+Use an authenticated student session in a real app; do not trust a student ID supplied by a public form.
+
+SECURITY
+- db.php uses mysqli and UTF-8; SQL operations use prepared statements.
+- Passwords are stored using password_hash(), not plaintext.
+- For production, use a least-privilege database account, HTTPS, CSRF protection,
+  authenticated event registrations, and safe error logging. Avoid showing raw DB errors to users.
+
+
+SECURE REGISTRATION UPDATE
+- Registration form includes a username field and client-side validation.
+- PHP validates all fields again on the server.
+- MySQL stores a unique username and unique email address.
+- Prepared statements are used for lookup and insert.
+- Passwords are hashed using password_hash(..., PASSWORD_DEFAULT).
+- Duplicate username/email checks provide user-friendly messages; database UNIQUE
+  constraints remain the final protection against simultaneous duplicate submissions.
+
+If you already imported the old database.sql, run this in phpMyAdmin > SQL:
+  ALTER TABLE students ADD COLUMN username VARCHAR(30) NOT NULL UNIQUE AFTER full_name;
+Only run that ALTER once. On a fresh setup, import the updated database.sql instead.
+
+ADMIN DASHBOARD SETUP
+1. Import the updated database.sql into MySQL/phpMyAdmin for a fresh setup.
+2. If the database already exists, run the ALTER TABLE and auth_tokens migration statements at the bottom of database.sql (skip statements already applied).
+3. Create a normal account through the registration page, then promote the verified account in phpMyAdmin: UPDATE students SET role='admin' WHERE email='your-admin-email@example.com';
+4. Sign in with that account. Login redirects admin users to admin-dashboard.php; non-admin users cannot open that page.
+5. Change the example email to the exact email for the account you intend to make administrator. Never make public registration assign the admin role.
